@@ -1,0 +1,3 @@
+law of big 3 meaning that again if you define one of the constructor ,destructor, or copy constructor you need to define all the 3
+
+law of big 2 where you can get away with not having a destructor if you know that the collection(e.g vector) is going to take care of deallocating all of the resources when the object is destroyed, so it's just enough to use a trivial destructor.
