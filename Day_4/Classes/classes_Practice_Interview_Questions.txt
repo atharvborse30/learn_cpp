@@ -1,0 +1,113 @@
+* Classes Basics *
+--------------------
+
+Q.1] In C++, what keyword(s) do we use to create a user-defined type?
+->   class (and/or struct)
+
+Q.2] Describe what a class is. You may use a concrete example ?
+->   A class is a way for a user to create a concree type. We often think of it as a 'blueprint'.
+     and create 'instances objects' from that blueprint. Classes consists of attributes (member variables)
+     and actions (member functions) that utilize the class blueprint.
+
+Q.3] What is a copy constructor ?
+->   A copy constructor is a special member function that is called when an instance of an object is created
+     from another object of the same type.
+
+Q.4] What happens if you do not provide a constructor, destructor, or copy constructor when creating a class ?
+->   The c++ compiler will provide a defaults for you. 
+
+Q.5] What is a move constructor ?
+->   A special member function that is called when an object is initialized from an 'rvalue'. 
+     When creating a new object, this effectively transfers ownership to the new object.
+
+
+* Classes Rules *
+-------------------
+
+Q.1] What are the three special member functions in the Rule of Three ?
+->   1. constructor , 2. destructor, 3. Copy constructor
+
+Q.2] In what scenario do you have to provide a custom copy constructor ?
+->   When performing a deep copy.
+     Thus, anytime you have a member variable that is not trivially copyable, you need to 
+     perform the deep copy.
+     visit :- https://youtu.be/EBgBM7rPDic?t=1860
+
+Q.3] What are the five member functions in the rule of 5 ?
+->   1. constructor
+     2. destructor
+     3. copy-constructor (and copy-assignment operator)
+     4. move constructor
+     5. move-assignment operator
+
+Q.4] When should you initialize an object with {} as opposed to () ?
+     e.g. UDT type{1,2};
+          UDT type(1,2); ?
+->  UDT type{1,2};
+    Useful to call the constructor and prevents narrowing. If a constructor has an initializer list, 
+    this will initialzer the initializer list.
+    UDT type(1,2);
+    Calls the constructor with two parameters, and does not prevent narrowing.
+
+Q.5] What are the three uses of const ? (i.e what is const correctness) ?
+->   1. const int pi = 3.14f;
+        //Local variable
+     2. foo(const T& param);
+        //parameters
+     3. member_func() const;
+        // read-only access of member variables
+
+* Structs *
+-------------
+
+Q.1] What is the difference b/w a struct and a class in c++ ?
+->   The default privacy level is pubic in a struct , and private in a class.
+     Bonus: This also holds for inheritance, that structs are publicly inherited by default.
+
+Q.2] Why do we create separate .hpp and .cpp files for user-defined types ?
+->   The .hpp file serves as an interface with the class declaration, member function declarations, and member variables.
+     The .cpp is the compiled file with the implementation.
+     We separate them out to 'hide-code', 'improve compilation', and the .hpp also serves as a high-level overview of our code.
+
+Q.3] What does RAII stands for ?
+->   Resoure Acquistion is initialization
+
+Q.4] What is 'POD' type ?
+->   A 'plain old data type' or 'piece of data'.
+     In C++ again, there is no distinction, but stylistically you may encounter developers
+     delineate b/w using classes and using structs strictly as POD types.
+
+Q.5] What is operator overloading and name some specific operators you can overload ?
+->   operator overloading allows you to define operators (e.g +,-, <=, <<, new, delete) for functions and classes
+
+
+* Classes inheritance *
+-------------------------
+
+Q.1] Is inheritance an 'is-a' or 'has-a' relationship ?
+->   'is-a' for inheritance
+     'has-a' for composition
+
+-----------------------------------------------------------
+
+Q.] Describe a strategy to prevent copies of objects from being made ?
+->  Delete the copy constructor or (if pre c++11) make the copy constructor private.
+    
+Q.] Why should you use a member initializer list ?
+->  using a member initializer list can avoid a copy, as we can directly construct the member variable inside the object.
+ 
+Q.] What is a friend class ?
+-> similar to friend function, a friend class gets acces to all (including private) member variables of a class.
+
+Q] why would you make a classes destructor virtual ?
+-> In general, we always make a base class virtual, to ensure that the base classes destructor will be called.
+   When we have a derived class that is going to use inheritance-based polymorphism, adding 'virtual' ensures that the base 
+   classes destructor is also called.
+
+Q.] How do you make an 'abstract class' in c++ ?
+->  we do not truly have 'abstract classes' in c++, but we can make 'pure virtual functions' that must be implemented from subclasses.
+
+Q.] Why is 'this' not a reference ?
+->  Bcz 'this' was introduced into c++ before references were added. Also, we chose 'this' to follow simula usage, 
+    rather than the (later) smalltalk use of 'self'.
+    visit: https://www.stroustrup.com/bs_faq2.html#this
