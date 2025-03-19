@@ -1,12 +1,12 @@
 # learn_cpp
 
 ### cpp reference
-- visit :- https://en.cppreference.com/w/
-- visit :- https://cplusplus.com/
+- visit cpprefernce :- https://en.cppreference.com/w/
+- visit cpluscplus :- https://cplusplus.com/
   
-- visit :- https://google.github.io/styleguide/cppguide.html
-- visit :- https://cppinsights.io/
-- visit :- https://godbolt.org/
-- visit :- https://github.com/seanbaxter/circle
-- visit :- https://github.com/carbon-language/carbon-lang
-- visit :- https://github.com/hsutter/cppfront
+- visit cppguide :- https://google.github.io/styleguide/cppguide.html
+- visit cppinsights :- https://cppinsights.io/
+- visit godbolt :- https://godbolt.org/
+- visit circle :- https://github.com/seanbaxter/circle
+- visit carbon-lang :- https://github.com/carbon-language/carbon-lang
+- visit cppfront :- https://github.com/hsutter/cppfront
