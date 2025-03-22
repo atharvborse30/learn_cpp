@@ -1,0 +1,276 @@
+visit :- https://en.cppreference.com/w/cpp/container
+visit :- https://www.cheat-sheets.org/saved-copy/cppcontainers.20210603.html
+
+Sequence Containers :-
+    - <array>
+    - <vector>
+    - <deque>
+    - <forward_list>
+    - <list>
+
+Container adaptors :-
+    - <stack>
+    - <queue>
+
+Unordered associative containers :-
+    - <unordered_set>
+        - unordered_set
+        - unordered_multiset
+
+    - <unordered_map>
+        - unordered_map
+        - unordered_multimap
+
+Associative containers :-
+    - <set>
+        - set
+        - multiset
+    
+    - <map>
+        - map
+        - multimap
+
+
+
+
+
+- Sequence Container - #include <array>
+    Overview:
+      - Fixed-size container (no.of elements must be known at compile-time, cannot resize)
+      - Contiguous block of memory
+      - stack allocated (thus fast, but we cannot make HUGE allocations)
+      - Random access in 0(1)
+      - Fast linear traversal (very cache friendly)
+      - Reordering or resizing array has a cost of copying 
+        (potentially expensive it elements are big)
+
+      - Time Complexity :
+        Insertion - O(n)
+        Update - O(1)
+        Delete - O(n)
+
+
+
+- Sequence Container - #include <vector>
+    Overview:
+        - 'dynamic array' that will resize as needed
+        - insertion at the end in O(1) time
+        - Contiguous block of memory that is heap-allocated
+        - heap allocated
+        - random access in O(1) (similar to std::array)
+        - fast linear traversal (very cache friendly)
+        - reordering or resizing has a cost of copying (potentially expensive if elements are big)
+        - potentially some cost versus array if we have to reallocate frequently as we resize.
+
+        - Time Complexity :
+          Operation      Time Complextiy
+          Insert Head         O(n)
+          Insert Index        O(n)
+          Insert Tail         O(1)
+          Remove Head         O(n)
+          Remove Index        O(n)
+          Remove Tail         O(1)
+          Find Index          O(1)
+          Find Object         O(n)
+
+
+
+- Sequence Container - #include <deque>
+    Overview :
+        - Double ended Queue 
+        - random access in O(1)
+        - this data structure in a way is almost a compromise b/w a list and a vector
+        can think of it as a linked list of arrays
+        - heap allocated
+        - generally fast linear traversal (very cache friendly)
+        - Insertion or deletion at beginning or end is generally fast
+        - reordering or resizing has a cost of copying (potentially expensive if elements are big)
+        - potentially some costs versus array if we have to
+        reallocate frequently as we resize
+
+        - Time Complexity :
+          Operation      Time Complextiy
+          Insert Head         O(1)
+          Insert Index        O(n) or O(1)
+          Insert Tail         O(1)
+          Remove Head         O(1)
+          Remove Index        O(n)
+          Remove Tail         O(1)
+          Find Index          O(1)
+          Find Object         O(n)
+
+
+- Sequence Container - #include <forward_list>
+    Overview :
+        - More space efficient implementation of std::list
+          However can only traverse forward
+        - in practice, slower (though you need to measure) than a std::vector
+        - allows for insertion in beginning , middle, and end in O(1) time
+        - usually more efficient to sort
+          - (pointers exchanged versus copying data in contiguous structures)
+        - no random access -- need to iterate
+
+        - Time Complexity :
+          Operation      Time Complextiy
+          Insert Head         O(1)
+          Insert Index        O(n)
+          Insert Tail         O(1)
+          Remove Head         O(1)
+          Remove Index        O(n)
+          Remove Tail         O(1)
+          Find Index          O(n)
+          Find Object         O(n)
+
+
+- Sequence Container - #include <list>
+    Overview :
+        - same tradeoffs as forward_list essentially, but allows bidirectional movement
+        - (i.e may be more convenient as you do not have to start from the head each traversal -- you can backtrack)
+
+        - Time Complexity :
+          Operation      Time Complextiy
+          Insert Head         O(1)
+          Insert Index        O(n)
+          Insert Tail         O(1)
+          Remove Head         O(1)
+          Remove Index        O(n)
+          Remove Tail         O(1)
+          Find Index          O(n)
+          Find Object         O(n)
+
+
+- Container Adaptor - #include <stack> - stack
+    Overview :
+        - Last in, first-out (LIFO) data structure to enforcde order
+        - The 'deque' is the default container but can also use std::vector or std::list
+
+        - Time Complexity :
+          Push   Equal to complexity of Container::push_back
+          Pop    Equal to complexity of Container::pop_back 
+          Top    O(1)
+
+
+- Container Adaptor = #include <queue> - queue
+    Overview :
+        - Firs-In, First-Out data structure (FIFO)
+        - deque is the standard container, but can also use std::list
+
+        Time Complexity :
+        Push   Equal to complexity of Container::push_back
+        Pop    Equal to complexity of Container::pop_front 
+        Front    O(1)
+        Back    O(1)
+
+- Container Adaptor - #include <queue> - priority_queue
+    Overview :
+        - priority determines which element is first out
+        - default implementation is a std::vector (can also use std::deque)
+
+        Time Complexity :
+        Push   Logarithmic no.of comparison plus complexity of Container::push_back
+        Pop    Logarithmic no.of comparison plus complexity of Container::pop_back 
+        Front   O(1)
+        Back    O(1)
+
+
+
+- Associative Container - #include <set> - set
+    Overview :
+        - ordered
+        - elements are unique
+        - usually a linked data structure like a balanced binary tree (e.g red-black tree) for implementation
+          this means 'Logarithmic complexity'
+        - useful for collecting elements
+
+        - Time Complexity :
+          Operation   Time Complexity 
+          Insert        O(log(n))
+          Remove        O(log(n))
+          Find          O(log(n))
+
+
+- Associative Container - #include <set> - multiset
+    Overview :
+        - same propertied as set, but can have multiple of the same elements
+
+        - Time Complexity :
+          Operation   Time Complexity 
+          Insert        O(log(n))
+          Remove        O(log(n))
+          Find          O(log(n))
+
+
+- Associative Container - #include <map> - map
+    Overview :
+    - elements are stored as key-value pairs (ie. std::pair)
+    - ordered elements
+    - elements are unique
+    - underlying elements are stored in a balanced tree (e.g red-black tree)
+
+    - Time Complexity :
+          Operation       Time Complexity 
+          Insert             O(log(n))
+          Access by Key      O(log(n))
+          Remove by Key      O(log(n))
+          Find/Remove Value  O(log(n))
+
+
+- Associative Container - #include <map> - multimap
+    Overview :
+        - same properties as map, but can have multiple of the same elements
+
+        - Time Complexity :
+          Operation       Time Complexity 
+          Insert             O(log(n))
+          Access by Key      O(log(n))
+          Remove by Key      O(log(n))
+          Find/Remove Value  O(log(n))
+
+
+- Unordered Associative Container - #include <unordered_set> - unordered_set
+    Overview :
+        - elements are not in order
+        - elements are unique
+        - faster average-case access due to the underlying data structure being a hash set (i.e hastable implementation)
+
+        - Time Complexity :
+          Insert   Avg case: O(1) worst case: O(size())
+          Access   Avg case: constant, worst case: linear in size.
+          Remove   Avg case: constant, worst case: linear in size of container
+          Find     Avg case: Constant, worst case: linear in the size of the container
+
+
+- Unordered Associative Container - #include <unordered_set> - unordered_multiset
+    - Overview :
+        - same properties as set, but can have multiple elements as same key
+
+        - Time Complexity :
+          Insert   Avg case: O(1) worst case: O(size())
+          Access   Avg case: constant, worst case: linear in size.
+          Remove   Avg case: constant, worst case: linear in size of container
+          Find     Avg case: Constant, worst case: linear in the size of the container
+
+
+- Unordered Associative Container - #include <unordered_map> - unordered_map
+    - Overview :
+        - elements are not in order
+        - elements are unique
+        - elements stored in key-value pair (like std::map)
+        - faster avg-case access due to the underlying data structure being a hash set (i.e hastable implementation)
+
+        - Time Complexity :
+          Insert   Avg case: O(1) worst case: O(size())
+          Access   Avg case: constant, worst case: linear in size.
+          Remove   Avg case: constant, worst case: linear in size of container
+          Find     Avg case: Constant, worst case: linear in the size of the container
+
+
+- Unordered Associative Container - #include <unordered_map> - unordered_multimap
+    - Overview :
+        - same properties as unordered_map, but can have multiple elements with the same key
+
+        - Time Complexity :
+          Insert   Avg case: O(1) worst case: O(size())
+          Access   Avg case: constant, worst case: linear in size.
+          Remove   Avg case: constant, worst case: linear in size of container
+          Find     Avg case: Constant, worst case: linear in the size of the container
