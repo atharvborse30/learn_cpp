@@ -12,6 +12,9 @@
 - visit cppfront :- https://github.com/hsutter/cppfront
 - visit compiler optimization :- https://compileroptimizations.com/
 
+- visit containers library :- https://en.cppreference.com/w/cpp/container
+- visit cheatsheet on choosing a container :- https://www.cheat-sheets.org/saved-copy/cppcontainers.20210603.html
+
 Recommended Books :-
 1. C++ for Game Programmers : https://www.amazon.com/C-Game-Programmers-Development/dp/1584504528
 2. Tour of C++ : https://www.amazon.com/Tour-C-Bjarne-Stroustrup/dp/0136816487/ref=sr_1_1?crid=3N799YEMC5AKP&dib=eyJ2IjoiMSJ9.cUwcba8ZM4vOywlAqQ2qcEfMJ_EF-hfFgGa1Ra8XmeMXaZPsFSPg91-WZ0ycTx_UikZaFkdPEMmCFf9OmMZ5fj7E-8zoQOClbcaP4Xe0VMFsYXqkuZlmzxooNt0tQW5G3X_8oqMwxUru4uktSYaqGiOWlZSvUapJUUcfbbCTXG5FMpivOcXm8I6aETO9nwmn4zm48EIx7TQmisDPUfH9P-_2WUlo6iuZYVaKWvvlW7o.YI25vMyHBIIzFCGUf_QrQzrM2xub_w1iZHctih6W0o8&dib_tag=se&keywords=tour+of+c%2B%2B&qid=1742451805&s=books&sprefix=tour+of+c%2B%2Cstripbooks-intl-ship%2C367&sr=1-1
